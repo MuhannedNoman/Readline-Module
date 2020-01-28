@@ -65,6 +65,12 @@ let random2 = Math.floor((Math.random() * 10) + 1);
 
 let answer = random1 + random2;
 
-rl.question(`What is ${random1} + ${random2} ?`, (userInput) => {
-    console.log(userInput);
+rl.question(`What is ${random1} + ${random2} ? \n`, (userInput) => {
+    if(userInput.trim() == answer){
+        rl.close();
+    }
+});
+
+rl.on('close',()=>{
+    console.log("Correct answer !!");
 });
